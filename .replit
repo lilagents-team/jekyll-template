@@ -22,3 +22,11 @@ args = "npm run bookshop-dev"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd site && bundle exec jekyll serve --host=0.0.0.0 --port 6060 --trace --unpublished"
+
+[[ports]]
+localPort = 6060
+externalPort = 3000
+
+[[ports]]
+localPort = 30775
+externalPort = 80
