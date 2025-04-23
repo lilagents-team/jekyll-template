@@ -9,7 +9,7 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "bundle exec jekyll serve --host=0.0.0.0 --port=5000"]
-build = ["sh", "-c", "chmod +x ./netlify-build.sh && ./netlify-build.sh"]
+build = ["sh", "-c", "bash netlify-build.sh"]
 
 [workflows]
 runButton = "Dev Server"
@@ -42,7 +42,15 @@ args = "bundle install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
+args = "mkdir -p _site"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
 args = "JEKYLL_ENV=production bundle exec jekyll build"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cp -r _site/* ../_site/"
 
 [[ports]]
 localPort = 6060
