@@ -6,7 +6,7 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "bundle exec jekyll serve --host=0.0.0.0 --port=5000"]
-build = ["sh", "-c", "bundle install && bundle exec jekyll build"]
+build = ["sh", "-c", "bundle exec jekyll build"]
 
 [workflows]
 runButton = "Dev Server"
