@@ -9,7 +9,7 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "bundle exec jekyll serve --host=0.0.0.0 --port=5000"]
-build = ["sh", "-c", "bundle exec jekyll build"]
+build = ["sh", "-c", "chmod +x ./netlify-build.sh && ./netlify-build.sh"]
 
 [workflows]
 runButton = "Dev Server"
@@ -26,6 +26,23 @@ args = "npm run bookshop-dev"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd site && bundle exec jekyll serve --host=0.0.0.0 --port 6060 --trace --unpublished"
+
+[[workflows.workflow]]
+name = "Build and Deploy"
+author = 41859832
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd site"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bundle install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "JEKYLL_ENV=production bundle exec jekyll build"
 
 [[ports]]
 localPort = 6060
