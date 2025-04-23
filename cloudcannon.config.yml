@@ -132,3 +132,9 @@ _structures:
     style: modal
 data_config: true
 timezone: Etc/UTC
+
+# Authentication settings
+_auth:
+  allowed_groups: ['editors', 'developers']
+  login_url: '/login/'
+  login_component: 'login-form'
