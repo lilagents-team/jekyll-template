@@ -3,6 +3,9 @@
   command = "chmod +x ./netlify-build.sh && ./netlify-build.sh"
   publish = "_site"
 
+[build.environment]
+  JEKYLL_ENV = "production"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
