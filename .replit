@@ -5,8 +5,8 @@ run = "npm run start"
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "bundle exec jekyll serve --port 6060 --host 0.0.0.0"]
-build = ["sh", "-c", "chmod +x ./netlify-build.sh && ./netlify-build.sh"]
+run = ["sh", "-c", "bundle exec jekyll serve --host=0.0.0.0 --port=5000"]
+build = ["sh", "-c", "bundle install && bundle exec jekyll build"]
 
 [workflows]
 runButton = "Dev Server"
