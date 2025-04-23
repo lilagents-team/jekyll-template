@@ -1,6 +1,9 @@
 modules = ["web", "nodejs-20", "bash", "ruby-3.2"]
 run = "npm run start"
 
+[env]
+REPLIT_NODEJS_PACKAGE_LAYER = "1"
+
 [nix]
 channel = "stable-24_05"
 

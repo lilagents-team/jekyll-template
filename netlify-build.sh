@@ -1,4 +1,6 @@
 
 #!/bin/bash
+cd site
 bundle install
 JEKYLL_ENV=production bundle exec jekyll build
+cp -r _site/* ../_site/
